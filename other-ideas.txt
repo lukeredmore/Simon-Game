@@ -1,0 +1,12 @@
+Automatic Recipie Generator
+- Generate recipies every time you open your fridge by taking apicture of the inside of your fridge and sending the photo to a GPT 4 API for analysis. The recipies are then sent to your phone via SMS
+- Requires camera, internet, 2 api calls, sensor (probably motion) to detect open fridge
+
+Simple smart switch:
+- Make any light switch smart with a gear-motor mechanism to pull a switch up or down based on remote control input
+- https://www.instructables.com/Remote-Control-Light-Switch-1/
+
+Simon game
+- Memory game 
+
+Smart trash can (garbage or recycle)

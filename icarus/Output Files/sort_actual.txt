@@ -1,0 +1,224 @@
+Cycle   8: Wrote 256 into register 29
+Cycle   9: Wrote 3840 into register 27
+Cycle  10: Wrote 50 into register 8
+Cycle  11: Wrote 3 into register 9
+Cycle  11: Wrote 3 into MEM[50]
+Cycle  13: Wrote 1 into register 9
+Cycle  13: Wrote 1 into MEM[51]
+Cycle  15: Wrote 4 into register 9
+Cycle  15: Wrote 4 into MEM[52]
+Cycle  17: Wrote 2 into register 9
+Cycle  17: Wrote 2 into MEM[53]
+Cycle  19: Wrote 50 into register 4
+Cycle  21: Wrote 78 into register 31
+Cycle  21: Wrote 78 into MEM[256]
+Cycle  23: Wrote 257 into register 29
+Cycle  24: Wrote 50 into register 8
+Cycle  25: Wrote 0 into register 9
+Cycle  26: Wrote 0 into register 4
+Cycle  27: Wrote 27 into register 31
+Cycle  28: Wrote 3840 into register 27
+Cycle  32: Wrote 3840 into register 2
+Cycle  35: Wrote 3837 into register 11
+Cycle  36: Wrote 3 into register 10
+Cycle  41: Wrote 3 into register 4
+Cycle  42: Wrote 32 into register 31
+Cycle  43: Wrote 3837 into register 27
+Cycle  47: Wrote 3837 into register 2
+Cycle  49: Wrote 3 into MEM[3837]
+Cycle  50: Wrote 0 into MEM[3838]
+Cycle  51: Wrote 0 into MEM[3839]
+Cycle  52: Wrote 3837 into MEM[2]
+Cycle  54: Wrote 51 into register 8
+Cycle  55: Wrote 1 into register 10
+Cycle  56: Wrote 3837 into register 9
+Cycle  60: Wrote 3 into register 4
+Cycle  61: Wrote 32 into register 31
+Cycle  62: Wrote 3834 into register 27
+Cycle  66: Wrote 3834 into register 2
+Cycle  68: Wrote 1 into MEM[3834]
+Cycle  69: Wrote 3837 into MEM[3835]
+Cycle  70: Wrote 0 into MEM[3836]
+Cycle  71: Wrote 3834 into MEM[3839]
+Cycle  73: Wrote 52 into register 8
+Cycle  74: Wrote 4 into register 10
+Cycle  75: Wrote 3834 into register 9
+Cycle  79: Wrote 3 into register 4
+Cycle  80: Wrote 32 into register 31
+Cycle  81: Wrote 3831 into register 27
+Cycle  85: Wrote 3831 into register 2
+Cycle  87: Wrote 4 into MEM[3831]
+Cycle  88: Wrote 3834 into MEM[3832]
+Cycle  89: Wrote 0 into MEM[3833]
+Cycle  90: Wrote 3831 into MEM[3836]
+Cycle  92: Wrote 53 into register 8
+Cycle  93: Wrote 2 into register 10
+Cycle  94: Wrote 3831 into register 9
+Cycle  98: Wrote 3 into register 4
+Cycle  99: Wrote 32 into register 31
+Cycle 100: Wrote 3828 into register 27
+Cycle 104: Wrote 3828 into register 2
+Cycle 106: Wrote 2 into MEM[3828]
+Cycle 107: Wrote 3831 into MEM[3829]
+Cycle 108: Wrote 0 into MEM[3830]
+Cycle 109: Wrote 3828 into MEM[3833]
+Cycle 111: Wrote 54 into register 8
+Cycle 112: Wrote 0 into register 10
+Cycle 113: Wrote 3828 into register 9
+Cycle 115: Wrote 3837 into register 2
+Cycle 116: Wrote 256 into register 29
+Cycle 117: Wrote 78 into register 31
+Cycle 122: Wrote 3837 into register 8
+Cycle 123: Wrote 3837 into register 4
+Cycle 124: Wrote 81 into register 31
+Cycle 124: Wrote 81 into MEM[256]
+Cycle 126: Wrote 257 into register 29
+Cycle 127: Wrote 0 into register 15
+Cycle 128: Wrote 3837 into register 8
+Cycle 129: Wrote 3837 into register 9
+Cycle 131: Wrote 3834 into register 14
+Cycle 136: Wrote 3 into register 10
+Cycle 137: Wrote 1 into register 11
+Cycle 140: Wrote 1 into register 15
+Cycle 141: Wrote 0 into register 12
+Cycle 144: Wrote 0 into MEM[3835]
+Cycle 146: Wrote 3831 into register 13
+Cycle 150: Wrote 3837 into MEM[3832]
+Cycle 151: Wrote 3831 into MEM[3839]
+Cycle 152: Wrote 3837 into MEM[3836]
+Cycle 153: Wrote 3834 into MEM[3838]
+Cycle 156: Wrote 3834 into register 8
+Cycle 157: Wrote 3834 into register 9
+Cycle 158: Wrote 3837 into register 14
+Cycle 163: Wrote 1 into register 10
+Cycle 164: Wrote 3 into register 11
+Cycle 169: Wrote 3837 into register 9
+Cycle 170: Wrote 3831 into register 14
+Cycle 175: Wrote 3 into register 10
+Cycle 176: Wrote 4 into register 11
+Cycle 181: Wrote 3831 into register 9
+Cycle 182: Wrote 3828 into register 14
+Cycle 187: Wrote 4 into register 10
+Cycle 188: Wrote 2 into register 11
+Cycle 191: Wrote 1 into register 15
+Cycle 192: Wrote 3837 into register 12
+Cycle 196: Wrote 3828 into MEM[3839]
+Cycle 197: Wrote 3837 into MEM[3829]
+Cycle 199: Wrote 0 into register 13
+Cycle 202: Wrote 0 into MEM[3833]
+Cycle 203: Wrote 3831 into MEM[3830]
+Cycle 204: Wrote 3828 into MEM[3832]
+Cycle 209: Wrote 3828 into register 9
+Cycle 210: Wrote 3831 into register 14
+Cycle 215: Wrote 2 into register 10
+Cycle 216: Wrote 4 into register 11
+Cycle 221: Wrote 3831 into register 9
+Cycle 222: Wrote 0 into register 14
+Cycle 225: Wrote 3834 into register 4
+Cycle 229: Wrote 0 into register 15
+Cycle 230: Wrote 3834 into register 8
+Cycle 231: Wrote 3834 into register 9
+Cycle 233: Wrote 3837 into register 14
+Cycle 238: Wrote 1 into register 10
+Cycle 239: Wrote 3 into register 11
+Cycle 244: Wrote 3837 into register 9
+Cycle 245: Wrote 3828 into register 14
+Cycle 250: Wrote 3 into register 10
+Cycle 251: Wrote 2 into register 11
+Cycle 254: Wrote 1 into register 15
+Cycle 255: Wrote 3834 into register 12
+Cycle 259: Wrote 3828 into MEM[3836]
+Cycle 260: Wrote 3834 into MEM[3829]
+Cycle 262: Wrote 3831 into register 13
+Cycle 266: Wrote 3837 into MEM[3832]
+Cycle 267: Wrote 3831 into MEM[3839]
+Cycle 268: Wrote 3837 into MEM[3830]
+Cycle 269: Wrote 3828 into MEM[3838]
+Cycle 274: Wrote 3828 into register 9
+Cycle 275: Wrote 3837 into register 14
+Cycle 280: Wrote 2 into register 10
+Cycle 281: Wrote 3 into register 11
+Cycle 286: Wrote 3837 into register 9
+Cycle 287: Wrote 3831 into register 14
+Cycle 292: Wrote 3 into register 10
+Cycle 293: Wrote 4 into register 11
+Cycle 298: Wrote 3831 into register 9
+Cycle 299: Wrote 0 into register 14
+Cycle 302: Wrote 3834 into register 4
+Cycle 306: Wrote 0 into register 15
+Cycle 307: Wrote 3834 into register 8
+Cycle 308: Wrote 3834 into register 9
+Cycle 310: Wrote 3828 into register 14
+Cycle 315: Wrote 1 into register 10
+Cycle 316: Wrote 2 into register 11
+Cycle 321: Wrote 3828 into register 9
+Cycle 322: Wrote 3837 into register 14
+Cycle 327: Wrote 2 into register 10
+Cycle 328: Wrote 3 into register 11
+Cycle 333: Wrote 3837 into register 9
+Cycle 334: Wrote 3831 into register 14
+Cycle 339: Wrote 3 into register 10
+Cycle 340: Wrote 4 into register 11
+Cycle 345: Wrote 3831 into register 9
+Cycle 346: Wrote 0 into register 14
+Cycle 349: Wrote 3834 into register 4
+Cycle 351: Wrote 3834 into register 2
+Cycle 352: Wrote 256 into register 29
+Cycle 353: Wrote 81 into register 31
+Cycle 358: Wrote 3834 into register 8
+Cycle 359: Wrote 0 into register 13
+Cycle 360: Wrote 0 into register 14
+Cycle 361: Wrote 3834 into register 9
+Cycle 366: Wrote 1 into register 10
+Cycle 368: Wrote 1 into register 13
+Cycle 369: Wrote 0 into register 14
+Cycle 370: Wrote 1 into register 14
+Cycle 371: Wrote 3828 into register 9
+Cycle 376: Wrote 2 into register 10
+Cycle 378: Wrote 3 into register 13
+Cycle 379: Wrote 8 into register 14
+Cycle 380: Wrote 11 into register 14
+Cycle 381: Wrote 3837 into register 9
+Cycle 386: Wrote 3 into register 10
+Cycle 388: Wrote 6 into register 13
+Cycle 389: Wrote 88 into register 14
+Cycle 390: Wrote 94 into register 14
+Cycle 391: Wrote 3831 into register 9
+Cycle 396: Wrote 4 into register 10
+Cycle 398: Wrote 10 into register 13
+Cycle 399: Wrote 752 into register 14
+Cycle 400: Wrote 762 into register 14
+Cycle 401: Wrote 0 into register 9
+============== Testing Mode ==============
+Reg  0:           0
+Reg  1:           0
+Reg  2:        3834
+Reg  3:           0
+Reg  4:        3834
+Reg  5:           0
+Reg  6:           0
+Reg  7:           0
+Reg  8:        3834
+Reg  9:           0
+Reg 10:           4
+Reg 11:           4
+Reg 12:        3834
+Reg 13:          10
+Reg 14:         762
+Reg 15:           0
+Reg 16:           0
+Reg 17:           0
+Reg 18:           0
+Reg 19:           0
+Reg 20:           0
+Reg 21:           0
+Reg 22:           0
+Reg 23:           0
+Reg 24:           0
+Reg 25:           0
+Reg 26:           0
+Reg 27:        3828
+Reg 28:           0
+Reg 29:         256
+Reg 30:           0
+Reg 31:          81

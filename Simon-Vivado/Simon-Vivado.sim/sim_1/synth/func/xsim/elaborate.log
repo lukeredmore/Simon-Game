@@ -1,0 +1,59 @@
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 710a7d8597ef4f85bd3f1c4a003f9959 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot WrapperTB_func_synth xil_defaultlib.WrapperTB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.dffe_ref
+Compiling module xil_defaultlib.register_32_default
+Compiling module xil_defaultlib.zero_comparator
+Compiling module xil_defaultlib.cla_8
+Compiling module xil_defaultlib.cla_32
+Compiling module xil_defaultlib.instruction_decoder
+Compiling module xil_defaultlib.FD
+Compiling module xil_defaultlib.DX
+Compiling module xil_defaultlib.sign_extender_17
+Compiling module xil_defaultlib.decoder_3
+Compiling module xil_defaultlib.left_shift_N(N=16)
+Compiling module xil_defaultlib.left_shift_N(N=8)
+Compiling module xil_defaultlib.left_shift_N(N=4)
+Compiling module xil_defaultlib.left_shift_N_default
+Compiling module xil_defaultlib.left_shift_N(N=1)
+Compiling module xil_defaultlib.left_shift
+Compiling module xil_defaultlib.right_shift_N(N=16)
+Compiling module xil_defaultlib.right_shift_N(N=8)
+Compiling module xil_defaultlib.right_shift_N(N=4)
+Compiling module xil_defaultlib.right_shift_N(N=2)
+Compiling module xil_defaultlib.right_shift_N(N=1)
+Compiling module xil_defaultlib.right_shift
+Compiling module xil_defaultlib.resolveLT
+Compiling module xil_defaultlib.mux_2
+Compiling module xil_defaultlib.mux_4
+Compiling module xil_defaultlib.mux_8
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.make_positive
+Compiling module xil_defaultlib.make_negative
+Compiling module xil_defaultlib.counter_6
+Compiling module xil_defaultlib.mult_ctrl
+Compiling module xil_defaultlib.div_ctrl
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.m_register_32
+Compiling module xil_defaultlib.shift_register_66_default
+Compiling module xil_defaultlib.multdiv
+Compiling module xil_defaultlib.PW
+Compiling module xil_defaultlib.jal_bypass
+Compiling module xil_defaultlib.loadOutputToALUInputDetector
+Compiling module xil_defaultlib.XM
+Compiling module xil_defaultlib.MW
+Compiling module xil_defaultlib.bypass
+Compiling module xil_defaultlib.processor
+Compiling module xil_defaultlib.ROM(MEMFILE="sort.mem")
+Compiling module xil_defaultlib.regfile_default
+Compiling module xil_defaultlib.RAM
+Compiling module xil_defaultlib.WrapperTB
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot WrapperTB_func_synth

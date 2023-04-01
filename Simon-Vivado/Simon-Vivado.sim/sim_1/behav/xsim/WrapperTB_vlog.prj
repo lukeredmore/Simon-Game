@@ -1,0 +1,43 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../cpu/RAM.v" \
+"../../../../../cpu/ROM.v" \
+"../../../../../cpu/alu/alu.v" \
+"../../../../../cpu/bypass.v" \
+"../../../../../cpu/alu/cla_32.v" \
+"../../../../../cpu/alu/cla_8.v" \
+"../../../../../cpu/multdiv/control.v" \
+"../../../../../cpu/multdiv/counter_6.v" \
+"../../../../../cpu/alu/decoder_3.v" \
+"../../../../../cpu/regfile/dffe_ref.v" \
+"../../../../../cpu/multdiv/div_ctrl.v" \
+"../../../../../cpu/instruction_decoder.v" \
+"../../../../../cpu/jal_bypass.v" \
+"../../../../../cpu/latches.v" \
+"../../../../../cpu/alu/left_shift.v" \
+"../../../../../cpu/alu/left_shift_N.v" \
+"../../../../../cpu/loadOutputToALUInputDetector.v" \
+"../../../../../cpu/multdiv/m_register_32.v" \
+"../../../../../cpu/multdiv/make_negative.v" \
+"../../../../../cpu/multdiv/make_positive.v" \
+"../../../../../cpu/multdiv/mult_ctrl.v" \
+"../../../../../cpu/multdiv/multdiv.v" \
+"../../../../../cpu/alu/mux_2.v" \
+"../../../../../cpu/alu/mux_4.v" \
+"../../../../../cpu/alu/mux_8.v" \
+"../../../../../cpu/processor.v" \
+"../../../../../cpu/regfile/regfile.v" \
+"../../../../../cpu/regfile/register_32.v" \
+"../../../../../cpu/alu/resolveLT.v" \
+"../../../../../cpu/alu/right_shift.v" \
+"../../../../../cpu/alu/right_shift_N.v" \
+"../../../../../cpu/multdiv/shift_register_66.v" \
+"../../../../../cpu/sign_extender.v" \
+"../../../../../cpu/alu/zero_comparator.v" \
+"../../../../../cpu/Wrapper_tb_vivado.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

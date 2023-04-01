@@ -1,0 +1,158 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+starting dump!
+Cycle   10: Wrote         256 into r29
+Cycle   11: Wrote        3840 into r27
+Cycle   12: Wrote          50 into r 8
+Cycle   13: Wrote           3 into r 9
+Cycle   15: Wrote           1 into r 9
+Cycle   17: Wrote           4 into r 9
+Cycle   19: Wrote           2 into r 9
+Cycle   21: Wrote          50 into r 4
+Cycle   23: Wrote          78 into r31
+Cycle   25: Wrote         257 into r29
+Cycle   26: Wrote          50 into r 8
+Cycle   27: Wrote           0 into r 9
+Cycle   28: Wrote           0 into r 4
+Cycle   29: Wrote          27 into r31
+Cycle   30: Wrote        3840 into r27
+Cycle   34: Wrote        3840 into r 2
+Cycle   37: Wrote        3837 into r11
+Cycle   38: Wrote           3 into r10
+Cycle   43: Wrote           3 into r 4
+Cycle   44: Wrote          32 into r31
+Cycle   45: Wrote        3837 into r27
+Cycle   49: Wrote        3837 into r 2
+Cycle   56: Wrote          51 into r 8
+Cycle   57: Wrote           1 into r10
+Cycle   58: Wrote        3837 into r 9
+Cycle   62: Wrote           3 into r 4
+Cycle   63: Wrote          32 into r31
+Cycle   64: Wrote        3834 into r27
+Cycle   68: Wrote        3834 into r 2
+Cycle   75: Wrote          52 into r 8
+Cycle   76: Wrote           4 into r10
+Cycle   77: Wrote        3834 into r 9
+Cycle   81: Wrote           3 into r 4
+Cycle   82: Wrote          32 into r31
+Cycle   83: Wrote        3831 into r27
+Cycle   87: Wrote        3831 into r 2
+Cycle   94: Wrote          53 into r 8
+Cycle   95: Wrote           2 into r10
+Cycle   96: Wrote        3831 into r 9
+Cycle  100: Wrote           3 into r 4
+Cycle  101: Wrote          32 into r31
+Cycle  102: Wrote        3828 into r27
+Cycle  106: Wrote        3828 into r 2
+Cycle  113: Wrote          54 into r 8
+Cycle  114: Wrote           0 into r10
+Cycle  115: Wrote        3828 into r 9
+Cycle  117: Wrote        3837 into r 2
+Cycle  118: Wrote         256 into r29
+Cycle  119: Wrote          78 into r31
+Cycle  124: Wrote        3837 into r 8
+Cycle  125: Wrote        3837 into r 4
+Cycle  126: Wrote          81 into r31
+Cycle  128: Wrote         257 into r29
+Cycle  129: Wrote           0 into r15
+Cycle  130: Wrote        3837 into r 8
+Cycle  131: Wrote        3837 into r 9
+Cycle  133: Wrote        3834 into r14
+Cycle  138: Wrote           3 into r10
+Cycle  139: Wrote           1 into r11
+Cycle  142: Wrote           1 into r15
+Cycle  143: Wrote           0 into r12
+Cycle  148: Wrote        3831 into r13
+Cycle  158: Wrote        3834 into r 8
+Cycle  159: Wrote        3834 into r 9
+Cycle  160: Wrote        3837 into r14
+Cycle  165: Wrote           1 into r10
+Cycle  166: Wrote           3 into r11
+Cycle  171: Wrote        3837 into r 9
+Cycle  172: Wrote        3831 into r14
+Cycle  177: Wrote           3 into r10
+Cycle  178: Wrote           4 into r11
+Cycle  183: Wrote        3831 into r 9
+Cycle  184: Wrote        3828 into r14
+Cycle  189: Wrote           4 into r10
+Cycle  190: Wrote           2 into r11
+Cycle  193: Wrote           1 into r15
+Cycle  194: Wrote        3837 into r12
+Cycle  201: Wrote           0 into r13
+Cycle  211: Wrote        3828 into r 9
+Cycle  212: Wrote        3831 into r14
+Cycle  217: Wrote           2 into r10
+Cycle  218: Wrote           4 into r11
+Cycle  223: Wrote        3831 into r 9
+Cycle  224: Wrote           0 into r14
+Cycle  227: Wrote        3834 into r 4
+Cycle  231: Wrote           0 into r15
+Cycle  232: Wrote        3834 into r 8
+Cycle  233: Wrote        3834 into r 9
+Cycle  235: Wrote        3837 into r14
+Cycle  240: Wrote           1 into r10
+Cycle  241: Wrote           3 into r11
+Cycle  246: Wrote        3837 into r 9
+Cycle  247: Wrote        3828 into r14
+Cycle  252: Wrote           3 into r10
+Cycle  253: Wrote           2 into r11
+Cycle  256: Wrote           1 into r15
+Cycle  257: Wrote        3834 into r12
+Cycle  264: Wrote        3831 into r13
+Cycle  276: Wrote        3828 into r 9
+Cycle  277: Wrote        3837 into r14
+Cycle  282: Wrote           2 into r10
+Cycle  283: Wrote           3 into r11
+Cycle  288: Wrote        3837 into r 9
+Cycle  289: Wrote        3831 into r14
+Cycle  294: Wrote           3 into r10
+Cycle  295: Wrote           4 into r11
+Cycle  300: Wrote        3831 into r 9
+Cycle  301: Wrote           0 into r14
+Cycle  304: Wrote        3834 into r 4
+Cycle  308: Wrote           0 into r15
+Cycle  309: Wrote        3834 into r 8
+Cycle  310: Wrote        3834 into r 9
+Cycle  312: Wrote        3828 into r14
+Cycle  317: Wrote           1 into r10
+Cycle  318: Wrote           2 into r11
+Cycle  323: Wrote        3828 into r 9
+Cycle  324: Wrote        3837 into r14
+Cycle  329: Wrote           2 into r10
+Cycle  330: Wrote           3 into r11
+Cycle  335: Wrote        3837 into r 9
+Cycle  336: Wrote        3831 into r14
+Cycle  341: Wrote           3 into r10
+Cycle  342: Wrote           4 into r11
+Cycle  347: Wrote        3831 into r 9
+Cycle  348: Wrote           0 into r14
+Cycle  351: Wrote        3834 into r 4
+Cycle  353: Wrote        3834 into r 2
+Cycle  354: Wrote         256 into r29
+Cycle  355: Wrote          81 into r31
+Cycle  360: Wrote        3834 into r 8
+Cycle  361: Wrote           0 into r13
+Cycle  362: Wrote           0 into r14
+Cycle  363: Wrote        3834 into r 9
+Cycle  368: Wrote           1 into r10
+Cycle  370: Wrote           1 into r13
+Cycle  371: Wrote           0 into r14
+Cycle  372: Wrote           1 into r14
+Cycle  373: Wrote        3828 into r 9
+Cycle  378: Wrote           2 into r10
+Cycle  380: Wrote           3 into r13
+Cycle  381: Wrote           8 into r14
+Cycle  382: Wrote          11 into r14
+Cycle  383: Wrote        3837 into r 9
+Cycle  388: Wrote           3 into r10
+Cycle  390: Wrote           6 into r13
+Cycle  391: Wrote          88 into r14
+Cycle  392: Wrote          94 into r14
+Cycle  393: Wrote        3831 into r 9
+Cycle  398: Wrote           4 into r10
+Cycle  400: Wrote          10 into r13
+Cycle  401: Wrote         752 into r14
+Cycle  402: Wrote         762 into r14
+Cycle  403: Wrote           0 into r 9
+500 cycles!
+$finish called at time : 99900 ns : File "Y:/ECE 350/SimonGame/cpu/Wrapper_tb_vivado.v" Line 92
