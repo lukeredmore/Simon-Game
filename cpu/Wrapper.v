@@ -1,38 +1,16 @@
 `timescale 1ns / 1ps
-/**
- * 
- * READ THIS DESCRIPTION:
- *
- * This is the Wrapper module that will serve as the header file combining your processor, 
- * RegFile and Memory elements together.
- *
- * This file will be used to generate the bitstream to upload to the FPGA.
- * We have provided a sibling file, Wrapper_tb.v so that you can test your processor's functionality.
- * 
- * We will be using our own separate Wrapper_tb.v to test your code. You are allowed to make changes to the Wrapper files 
- * for your own individual testing, but we expect your final processor.v and memory modules to work with the 
- * provided Wrapper interface.
- * 
- * Refer to Lab 5 documents for detailed instructions on how to interface 
- * with the memory elements. Each imem and dmem modules will take 12-bit 
- * addresses and will allow for storing of 32-bit values at each address. 
- * Each memory module should receive a single clock. At which edges, is 
- * purely a design choice (and thereby up to you). 
- * 
- * You must change line 36 to add the memory file of the test you created using the assembler
- * For example, you would add sample inside of the quotes on line 38 after assembling sample.s
- *
- **/
 
-module Wrapper (clock, reset, LED);
+// Top level module for Simon, used as the interface between FPGA and CPU
+module Wrapper (clock, reset, LED, BTN);
 	input clock, reset;
+	input [3:0] BTN;
 	output [15:0] LED;
 
-     reg clk50MHz = 1'b0;
-     reg clockCount = 1'b0;
-     always @(posedge clock) begin      
-        clockCount <= ~clockCount;
-        if (~clockCount)
+    reg clk50MHz = 1'b0;
+    reg clockCount = 0;
+    always @(posedge clock) begin      
+        clockCount <= clockCount + 1;
+        if (clockCount == 0)
             clk50MHz <= ~clk50MHz;
      end
 
@@ -42,14 +20,22 @@ module Wrapper (clock, reset, LED);
 	wire[31:0] instAddr, instData, 
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
+	
+	wire [3:0] rand_encoding;
+	lfsr RandomNumberGenerator(
+	.clk(clk50MHz),
+	.rand_4_bit_encoding(rand_encoding));
+	
+	wire [31:0] cpuMemDataIn;
+	assign cpuMemDataIn = memAddr == 1000 ? BTN : memAddr == 2000 ? rand_encoding : memDataOut;
     
     wire [31:0] PC;
-    //ila_0 Debugger(.clk(clock), .probe0(PC), .probe1(rData), .probe2(clk50MHz), .probe3(~reset));
 
-	localparam INSTR_FILE = "sort";
+	localparam INSTR_FILE = "simon-builtin";
 	
 	// Main Processing Unit
-	processor CPU(.clock(clk50MHz), .reset(~reset), 
+	processor CPU(.clock(clk50MHz), 
+	    .reset(~reset), 
 		.PC_out(PC),						
 		// ROM
 		.address_imem(instAddr), .q_imem(instData),
@@ -61,7 +47,7 @@ module Wrapper (clock, reset, LED);
 									
 		// RAM
 		.wren(mwe), .address_dmem(memAddr), 
-		.data(memDataIn), .q_dmem(memDataOut)); 
+		.data(memDataIn), .q_dmem(cpuMemDataIn)); 
 	
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
