@@ -1,10 +1,15 @@
 `timescale 1ns / 1ps
 
 // Top level module for Simon, used as the interface between FPGA and CPU
-module Wrapper (clock, reset, LED, BTN);
-	input clock, reset;
-	input [3:0] BTN;
-	output [15:0] LED;
+module Wrapper (
+	input clock, 
+	input reset,
+	input [3:0] BTN,
+	input [3:0] JD,
+	output [15:0] LED,
+	output audioOut,
+	output reg audioEn = 0,
+	output reg [7:4] JC = 0);
 
     reg clk50MHz = 1'b0;
     reg clockCount = 0;
@@ -27,11 +32,11 @@ module Wrapper (clock, reset, LED, BTN);
 	.rand_4_bit_encoding(rand_encoding));
 	
 	wire [31:0] cpuMemDataIn;
-	assign cpuMemDataIn = memAddr == 1000 ? BTN : memAddr == 2000 ? rand_encoding : memDataOut;
+	assign cpuMemDataIn = memAddr == 1000 ? JD : memAddr == 2000 ? rand_encoding : memDataOut;
     
     wire [31:0] PC;
 
-	localparam INSTR_FILE = "simon-builtin";
+	localparam INSTR_FILE = "simon-builtin-sound";
 	
 	// Main Processing Unit
 	processor CPU(.clock(clk50MHz), 
@@ -68,10 +73,26 @@ module Wrapper (clock, reset, LED, BTN);
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 
 		.dataOut(memDataOut));
-	
+
+	// Audio Controller
+	reg [3:0] tone = 0;
+	AudioController sound(
+    	.clk(clk50MHz),
+    	.tone(tone),
+    	.audioOut(audioOut));
+
+	// reg [3:0] LED_PIN = 0;
+	// assign JC[7:4] = LED_PIN[3:0];
 	reg [14:0] r14 = 14'd0;
 	always @(posedge clk50MHz) begin
-       if (rwe & rd == 14) r14 <= rData[14:0];
+        if (rwe & rd == 14) begin 
+			r14 <= rData[14:0];
+			JC[7:4] <= rData[3:0];
+		end
+	    if (mwe & memAddr == 3000) begin
+			tone <= rData[3:0];
+			audioEn <= rData > 0 ? 1 : 0;
+	    end
     end
     assign LED[14:0] = r14;
 
