@@ -4,6 +4,7 @@ module mylcdcontroller_tb();
     reg reset = 1;
     reg [15:0] SW = 0;
 
+    reg execute = 0;
     mylcdcontroller DUT(
         .clock(clock),
         .reset(reset),
@@ -12,7 +13,7 @@ module mylcdcontroller_tb();
     );
 
     always #10 clock <= ~clock;
-    reg execute = 0;
+    
     initial begin
         $dumpfile("mylcdcontroller.vcd");
         $dumpvars(0, mylcdcontroller_tb);
