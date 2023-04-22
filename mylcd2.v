@@ -30,13 +30,14 @@ endmodule
 module mylcdcontroller(
     input clock,
     input reset,
-    input [3:0] BTN,
+    input [8:0] rom_data,
     input [15:0] SW,
     input start,
     output rs,
     output e,
     output [7:4] d,
-    output [15:0] LED
+    output [15:0] LED,
+    output reg [3:0] rom_addr
 );
 
     // assign clk50MHz = clock;
@@ -74,11 +75,11 @@ module mylcdcontroller(
         .LED(LED)
     );
 
-    reg [3:0] rom_addr = 0;
-    wire [8:0] rom_data;
-    mylcd_rom2 rom(
-        .rom_in(rom_addr),
-        .rom_out(rom_data));
+    // reg [3:0] rom_addr = 0;
+    // wire [8:0] rom_data;
+    // mylcd_rom2 rom(
+    //     .rom_in(rom_addr),
+    //     .rom_out(rom_data));
 
 endmodule
 
@@ -93,8 +94,8 @@ module mylcd2(
     output reg [7:4] d = 0,
     output [15:0] LED
 );
-    localparam SHORT_DELAY = 100;//2500;  // 50us
-    localparam LONG_DELAY = 100;//110_000; //2.1ms
+    localparam SHORT_DELAY = 50;//2500;  // 50us
+    localparam LONG_DELAY = 50;//110_000; //2.1ms
     reg [15:0] count = 0;
 
     assign LED = {clock_50, 1'b0, e, 1'b0, rs, 1'b0, d, 1'b0, count[4:0]};
@@ -112,45 +113,45 @@ module mylcd2(
             ready <= 1;
         end
 
-        // how to set bits
-        if (count == 0)    rs <= rom_data[8];
-        if (count == 5)    e <= 1'b1;
-        if (count == 7)    d <= rom_data[7:4];
-        // enable falling edge
-        if (count == 20)   e <= 1'b0;
-        if (count == 30)   e <= 1'b1;
-        if (count == 32)   d <= rom_data[3:0];
-        if (count == 45)   e <= 1'b0;
+        if (rom_data != 0) begin
+            // how to set bits
+            if (count == 0)    rs <= rom_data[8];
+            if (count == 5)    e <= 1'b1;
+            if (count == 7)    d <= rom_data[7:4];
+            // enable falling edge
+            if (count == 20)   e <= 1'b0;
+            if (count == 30)   e <= 1'b1;
+            if (count == 32)   d <= rom_data[3:0];
+            if (count == 45)   e <= 1'b0;
+        end
     end
 endmodule
 
-module mylcd_rom2 (
-    rom_in, // Address input
-    rom_out    // Data output
-);
-input [3:0] rom_in;
-output reg [8:0] rom_out;
+// module mylcd_rom2 (
+//     input [3:0] rom_in, // Address input
+//     output reg [8:0] rom_out    // Data output
+// );
      
-always @*
-begin
-  case (rom_in)
-   4'h0: rom_out = 9'b1_1111_0111;
-   4'h1: rom_out = 9'd0;
-   4'h2: rom_out = 9'd0;
-   4'h3: rom_out = 9'd0;
-   4'h4: rom_out = 9'b0_0010_0000;
-   4'h5: rom_out = 9'b0_0000_0001;
-   4'h6: rom_out = 9'b0_0000_0010;
-   4'h7: rom_out = 9'b0_0000_1100;
-   4'h8: rom_out = 9'b1_0100_1000;
-   4'h9: rom_out = 9'b1_0100_1001;
-   4'ha: rom_out = 9'b1_0100_1010;
-//    4'ha: rom_out = 16'h014f;
-//    4'hb: rom_out = 5'b10100;
-//    4'hc: rom_out = 5'b11000;
-//    4'hd: rom_out = 5'b10100;
-//    4'he: rom_out = 5'b11001;
-   default: rom_out = 9'd0;
-  endcase
-end
-endmodule
+// always @*
+// begin
+//   case (rom_in)
+//    4'h0: rom_out = 9'b1_1111_0111;
+//    4'h1: rom_out = 9'd0;
+//    4'h2: rom_out = 9'd0;
+//    4'h3: rom_out = 9'd0;
+//    4'h4: rom_out = 9'b0_0010_0000;
+//    4'h5: rom_out = 9'b0_0000_0001;
+//    4'h6: rom_out = 9'b0_0000_0010;
+//    4'h7: rom_out = 9'b0_0000_1100;
+//    4'h8: rom_out = 9'b1_0100_1000;
+//    4'h9: rom_out = 9'b1_0100_1001;
+//    4'ha: rom_out = 9'b1_0100_1010;
+// //    4'ha: rom_out = 16'h014f;
+// //    4'hb: rom_out = 5'b10100;
+// //    4'hc: rom_out = 5'b11000;
+// //    4'hd: rom_out = 5'b10100;
+// //    4'he: rom_out = 5'b11001;
+//    default: rom_out = 9'd0;
+//   endcase
+// end
+// endmodule

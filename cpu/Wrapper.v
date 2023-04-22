@@ -5,8 +5,12 @@ module Wrapper (
 	input clock, 
 	input reset,
 	input [3:0] BTN,
+	input [15:0] SW,
 	input [3:0] JD,
 	output [15:0] LED,
+	output rs,
+	output e,
+    output [7:4] d,
 	output audioOut,
 	output reg audioEn = 0,
 	output reg [7:4] JC = 0);
@@ -32,7 +36,7 @@ module Wrapper (
 	.rand_4_bit_encoding(rand_encoding));
 	
 	wire [31:0] cpuMemDataIn;
-	assign cpuMemDataIn = memAddr == 1000 ? JD : memAddr == 2000 ? rand_encoding : memDataOut;
+	assign cpuMemDataIn = memAddr == 1000 ? (SW[15] ? BTN : JD) : memAddr == 2000 ? rand_encoding : memDataOut; // or JD
     
     wire [31:0] PC;
 
@@ -72,6 +76,8 @@ module Wrapper (
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 
+		.lcdOutAddr(lcdOutAddr + 4000),
+		.lcdDataOut(lcdDataOut),
 		.dataOut(memDataOut));
 
 	// Audio Controller
@@ -94,6 +100,23 @@ module Wrapper (
 			audioEn <= rData > 0 ? 1 : 0;
 	    end
     end
-    assign LED[14:0] = r14;
+    assign LED[14:0] = r14[14:0];
+
+	// LCD (gross)
+	wire [31:0] lcdOutAddr, lcdDataOut;
+	mylcdcontroller lcd(
+		.clock(clock),
+     	.reset(reset),
+    	.SW(SW),
+		.rom_data(lcdDataOut[8:0]),
+		.rom_addr(lcdOutAddr),
+		.start(),
+    	.rs(rs),
+    	.e(e),
+    	.d(d)//,
+    	// .LED(LED)
+	);
+
+	ila_0 debugger(clock, lcdDataOut, lcdOutAddr, memAddr, rData, {31'd0, mwe});
 
 endmodule

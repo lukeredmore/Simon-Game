@@ -9,3 +9,5 @@
 8,button
 9,delaycounter
 10,delayval
+11,lcdcommand
+12,lcdaddr

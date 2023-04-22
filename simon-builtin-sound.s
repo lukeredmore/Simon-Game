@@ -2,40 +2,144 @@
 nop
 nop
 nop
-# aside: addi $r1, $r0, 1
-# sw $r1, 3000($r0)
+# aside:
+# addi $r14, $r0, 1
 # jal delay
-# addi $r1, $r1, 1
-# sw $r1, 3000($r0)
+# sll $r14, $r14, 16
 # jal delay
-# addi $r1, $r1, 1
-# sw $r1, 3000($r0)
+# addi $r14, $r14, -1
 # jal delay
-# addi $r1, $r1, 1
-# sw $r1, 3000($r0)
+
+# addi $r1, $r0, 32 #b0_0010_0000 #h0020
+# addi $r2, $r0, 2
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 1 #b0_0000_0001 #h0001
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 2 #b0_0000_0010 #h0002
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 12 #b0_0000_1100 #h000c
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 333 #77 + 256 #h014d #b1_0100_1101
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 335 #79 + 256 #h014f #b1_0100_1111
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 334 #78 + 256 #h014e #b1_0100_1110
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 325 #69 + 256 #h0145 #b1_0100_0101
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+
+# addi $r1, $r0, 345 #89 + 256 #h0159 #b1_0101_1001
+# addi $r2, $r2, 1
+# sw $r1, 4000($r2)
+# nop
+# nop
+# # try lw from 4000 and see whats there
+# nop
 # jal delay
-# addi $r1, $r1, 1
-# sw $r1, 3000($r0)
 # jal delay
-# addi $r1, $r1, 1
-# sw $r1, 3000($r0)
-# jal delay
-# jal delay
-# sw $r0, 3000($r0)
+
+# addi $r2, $r0, 2
+# nop
+# nop
+# lw $r14, 4000($r2)
 # jal delay
 # jal delay
+
+# addi $r2, $r2, 1
+# nop
+# nop
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+
+# addi $r2, $r2, 1
+# nop
+# nop
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# nop
+# nop
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# nop
+# nop
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# nop
+# nop
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+# addi $r2, $r2, 1
+# lw $r14, 4000($r2)
+# jal delay
+# jal delay
+nop
+nop
 # j aside
-# nop
-# nop
-# start:
+nop
+nop
+addi $patternlength, $patternlength, 1 
+nop
+nop
+jal displayScore
+nop
+nop
+
+start:
 # real game start
 addi $one, $one, 1
 add $patternlength, $zero, $zero
-gameLoop:                                  
+gameLoop:
     lw $random 2000($0)                                     # get random value for pattern
     sw $random 0($patternlength)                            # store it in mem array
     addi $patternlength, $patternlength, 1                  # increase the length
     addi $patternindex, $0, 0                               # set display index = 0
+
+    nop
+        nop
+        addi $lcdcommand, $patternlength, -1 #score to display = 1 less than pattern length
+        addi $lcdcommand, $lcdcommand, 48 #
+        addi $lcdcommand, $lcdcommand, 256
+        sw $lcdcommand, 4000($lcdaddr)
+        nop
+        nop
     displayLoop:
         # jal delay
         # nop
@@ -115,5 +219,69 @@ gameOver:
     jal delay
     addi $r14, $r0, 0
 j gameOver
+
+displayScore:
+    # 4-bit mode
+    addi $lcdcommand, $r0, 32 #b0_0010_0000 #h0020
+    addi $lcdaddr, $r0, 2
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # Clear display
+    addi $lcdcommand, $r0, 1 #b0_0000_0001 #h0001
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # Return home
+    addi $lcdcommand, $r0, 2 #b0_0000_0010 #h0002
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # Display on, no cursor
+    addi $lcdcommand, $r0, 12 #b0_0000_1100 #h000c
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1    
+
+    # S
+    addi $lcdcommand, $r0, 339 #b1_0010_10011
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1    
+
+    # C
+    addi $lcdcommand, $r0, 323
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1 
+
+    # O
+    addi $lcdcommand, $r0, 335 #b1_0100_1111
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # R
+    addi $lcdcommand, $r0, 338 #b1_0101_0010
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # E
+    addi $lcdcommand, $r0, 325 #b1_0100_0101
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1
+
+    # :
+    addi $lcdcommand, $r0, 314 #b1_0011_1010
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1 
+
+    # SP
+    addi $lcdcommand, $r0, 288 #b1_0010_0000
+    sw $lcdcommand, 4000($lcdaddr)
+    addi $lcdaddr, $lcdaddr, 1 
+
+    # score
+    addi $lcdcommand, $patternlength, -1 #score to display = 1 less than pattern length
+    addi $lcdcommand, $lcdcommand, 48 #
+    addi $lcdcommand, $lcdcommand, 256
+    sw $lcdcommand, 4000($lcdaddr)
+jr $r31
 
 # assemble: ./assembler/asm -r ./assembler/custom-regs.csv simon-builtin-sound.s && mv simon-builtin-sound.mem ./assembler-out/simon-builtin-sound.mem
