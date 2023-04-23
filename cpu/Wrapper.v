@@ -19,11 +19,9 @@ module Wrapper (
     reg clockCount = 0;
     always @(posedge clock) begin      
         clockCount <= clockCount + 1;
-        if (clockCount == 0)
-            clk50MHz <= ~clk50MHz;
+        if (clockCount == 0) clk50MHz <= ~clk50MHz;
      end
 
-    assign LED[15] = clk50MHz;
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData, 
@@ -32,20 +30,17 @@ module Wrapper (
 	
 	wire [3:0] rand_encoding;
 	lfsr RandomNumberGenerator(
-	.clk(clk50MHz),
+		.clk(clk50MHz),
 	.rand_4_bit_encoding(rand_encoding));
 	
 	wire [31:0] cpuMemDataIn;
 	assign cpuMemDataIn = memAddr == 1000 ? (SW[15] ? BTN : JD) : memAddr == 2000 ? rand_encoding : memDataOut; // or JD
-    
-    wire [31:0] PC;
 
 	localparam INSTR_FILE = "simon-builtin-sound";
 	
 	// Main Processing Unit
 	processor CPU(.clock(clk50MHz), 
-	    .reset(~reset), 
-		.PC_out(PC),						
+	    .reset(~reset), 						
 		// ROM
 		.address_imem(instAddr), .q_imem(instData),
 									
@@ -87,8 +82,6 @@ module Wrapper (
     	.tone(tone),
     	.audioOut(audioOut));
 
-	// reg [3:0] LED_PIN = 0;
-	// assign JC[7:4] = LED_PIN[3:0];
 	reg [14:0] r14 = 14'd0;
 	always @(posedge clk50MHz) begin
         if (rwe & rd == 14) begin 
@@ -100,11 +93,12 @@ module Wrapper (
 			audioEn <= rData > 0 ? 1 : 0;
 	    end
     end
+	assign LED[15] = clk50MHz;
     assign LED[14:0] = r14[14:0];
 
 	// LCD (gross)
 	wire [31:0] lcdOutAddr, lcdDataOut;
-	mylcdcontroller lcd(
+	lcdcontroller lcd(
 		.clock(clock),
      	.reset(reset),
     	.SW(SW),
@@ -116,7 +110,5 @@ module Wrapper (
     	.d(d)//,
     	// .LED(LED)
 	);
-
-	ila_0 debugger(clock, lcdDataOut, lcdOutAddr, memAddr, rData, {31'd0, mwe});
 
 endmodule

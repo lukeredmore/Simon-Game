@@ -1,3 +1,5 @@
 *.vcd
 *.DS_Store
 builtin-working.mov
+externaliosound-working.MOV
+a.out

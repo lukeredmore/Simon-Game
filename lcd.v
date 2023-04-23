@@ -1,33 +1,5 @@
 `timescale 1 ns/100 ps
-module mylcdcontroller_tb();
-    reg clock = 0;
-    reg reset = 1;
-    reg [15:0] SW = 0;
-
-    reg execute = 0;
-    mylcdcontroller DUT(
-        .clock(clock),
-        .reset(reset),
-        .SW(SW),
-        .start(execute)
-    );
-
-    always #10 clock <= ~clock;
-    
-    initial begin
-        $dumpfile("mylcdcontroller.vcd");
-        $dumpvars(0, mylcdcontroller_tb);
-        #10
-        execute = 1;
-        #10
-        execute = 0;
-        #1000000
-        $finish;
-    end
-
-endmodule
-
-module mylcdcontroller(
+module lcdcontroller(
     input clock,
     input reset,
     input [8:0] rom_data,
@@ -37,7 +9,7 @@ module mylcdcontroller(
     output e,
     output [7:4] d,
     output [15:0] LED,
-    output reg [3:0] rom_addr
+    output reg [4:0] rom_addr
 );
 
     // assign clk50MHz = clock;
@@ -63,7 +35,7 @@ module mylcdcontroller(
 
 
     wire ready;
-    mylcd2 lcd(
+    lcd lcd(
         .clock_50(clk50MHz),
         .reset(reset),
         .start_cmd(start | ready),
@@ -75,15 +47,9 @@ module mylcdcontroller(
         .LED(LED)
     );
 
-    // reg [3:0] rom_addr = 0;
-    // wire [8:0] rom_data;
-    // mylcd_rom2 rom(
-    //     .rom_in(rom_addr),
-    //     .rom_out(rom_data));
-
 endmodule
 
-module mylcd2(
+module lcd(
     input clock_50,
     input reset,
     input start_cmd,
@@ -126,32 +92,3 @@ module mylcd2(
         end
     end
 endmodule
-
-// module mylcd_rom2 (
-//     input [3:0] rom_in, // Address input
-//     output reg [8:0] rom_out    // Data output
-// );
-     
-// always @*
-// begin
-//   case (rom_in)
-//    4'h0: rom_out = 9'b1_1111_0111;
-//    4'h1: rom_out = 9'd0;
-//    4'h2: rom_out = 9'd0;
-//    4'h3: rom_out = 9'd0;
-//    4'h4: rom_out = 9'b0_0010_0000;
-//    4'h5: rom_out = 9'b0_0000_0001;
-//    4'h6: rom_out = 9'b0_0000_0010;
-//    4'h7: rom_out = 9'b0_0000_1100;
-//    4'h8: rom_out = 9'b1_0100_1000;
-//    4'h9: rom_out = 9'b1_0100_1001;
-//    4'ha: rom_out = 9'b1_0100_1010;
-// //    4'ha: rom_out = 16'h014f;
-// //    4'hb: rom_out = 5'b10100;
-// //    4'hc: rom_out = 5'b11000;
-// //    4'hd: rom_out = 5'b10100;
-// //    4'he: rom_out = 5'b11001;
-//    default: rom_out = 9'd0;
-//   endcase
-// end
-// endmodule
