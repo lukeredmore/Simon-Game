@@ -11,3 +11,9 @@
 10,delayval
 11,lcdcommand
 12,lcdaddr
+14,fourteen
+15,fifteen
+16,delay_1counter
+17,delay_mslength
+18,delay_mscounter
+19,displaydelaylength

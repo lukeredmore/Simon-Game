@@ -34,7 +34,7 @@ module Wrapper (
 	.rand_4_bit_encoding(rand_encoding));
 	
 	wire [31:0] cpuMemDataIn;
-	assign cpuMemDataIn = memAddr == 1000 ? (SW[15] ? BTN : JD) : memAddr == 2000 ? rand_encoding : memDataOut; // or JD
+	assign cpuMemDataIn = memAddr == 1000 ? (SW[15] ? BTN_DB : JD_DB) : memAddr == 2000 ? rand_encoding : memDataOut; // or JD
 
 	localparam INSTR_FILE = "simon-builtin-sound";
 	
@@ -95,6 +95,7 @@ module Wrapper (
     end
 	assign LED[15] = clk50MHz;
     assign LED[14:0] = r14[14:0];
+	// assign LED[14:4] = button_count;
 
 	// LCD (gross)
 	wire [31:0] lcdOutAddr, lcdDataOut;
@@ -111,4 +112,43 @@ module Wrapper (
     	// .LED(LED)
 	);
 
+	// BTN Debounce
+	// assign BTN_DB = BTN[3:0];
+	wire [3:0] BTN_DB;
+	simpleDebounce BTN_Debouncer_0(
+		.in(BTN[0]),
+		.clock(clock), 
+		.out(BTN_DB[0]));
+	simpleDebounce BTN_Debouncer_1(
+		.in(BTN[1]),
+		.clock(clock), 
+		.out(BTN_DB[1]));
+	simpleDebounce BTN_Debouncer_2(
+		.in(BTN[2]),
+		.clock(clock), 
+		.out(BTN_DB[2]));
+	simpleDebounce BTN_Debouncer_3(
+		.in(BTN[3]),
+		.clock(clock), 
+		.out(BTN_DB[3]));
+
+	// JD Debounce
+	// assign JD_DB = JD[3:0];
+	wire [3:0] JD_DB;
+	simpleDebounce JD_Debouncer_0(
+		.in(JD[0]),
+		.clock(clock), 
+		.out(JD_DB[0]));
+	simpleDebounce JD_Debouncer_1(
+		.in(JD[1]),
+		.clock(clock), 
+		.out(JD_DB[1]));
+	simpleDebounce JD_Debouncer_2(
+		.in(JD[2]),
+		.clock(clock), 
+		.out(JD_DB[2]));
+	simpleDebounce JD_Debouncer_3(
+		.in(JD[3]),
+		.clock(clock), 
+		.out(JD_DB[3]));
 endmodule
